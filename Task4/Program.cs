@@ -31,6 +31,22 @@ namespace Task4
             return currentSymbol;
         }
 
+        public static bool Exit() // выход из программы
+        {
+            WriteLine("Желаете начать сначала или нет? \nВведите да или нет");
+            var word = Convert.ToString(ReadLine()); // ответ пользователя
+            Clear();
+            if (word == "да" || word == "Да" || word == "ДА")
+            {
+                Clear();
+                return false;
+            }
+            Clear();
+            WriteLine("Вы ввели 'нет' или что-то непонятное. Нажмите любую клавишу, чтобы выйти из программы.");
+            ReadKey();
+            return true;
+        }
+
         static void Main(string[] args)
         {
             bool okay;
@@ -88,15 +104,9 @@ namespace Task4
                     WriteLine(newp); // выводим результат
                 }
                 else // если результат вычислен
-                {
                     for (var i = 0; i < n; i++) // выводим результат в обратном порядке
-                    {
                         Write(number[n - 1 - i]);
-                    }
-                }
-                WriteLine("Выйти? y - да/n - нет"); //выход из программы
-                var ans = ReadLine();
-                okay = ans == "y";
+                okay = Exit();
             } while (!okay);
         }
     }
