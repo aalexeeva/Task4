@@ -106,6 +106,7 @@ namespace Task4
                 else // если результат вычислен
                     for (var i = 0; i < n; i++) // выводим результат в обратном порядке
                         Write(number[n - 1 - i]);
+                WriteLine();
                 okay = Exit();
             } while (!okay);
         }
